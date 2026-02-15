@@ -1,0 +1,155 @@
+.main-container{
+    display: flex;
+    font-family: var(--primary-font);
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    min-height: 100vh;
+}
+
+.container{
+    width: 60%;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+
+.login-container{
+    height: 100vh;
+    width: 40%; 
+    background-color: var(--neutral-white);
+    display: flex;
+    justify-content: end;
+}
+
+.form-container{
+    height: 100vh;
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 4rem 3rem;
+    background-color: var(--neutral-white);
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.25);
+    z-index: 1000;
+}
+
+.logo-form{
+    width: 60%;
+}
+
+.input-container{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    position: relative;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.input-label{
+    font-size: 1.25rem;
+    font-weight: bold;
+    letter-spacing: .75px;
+}
+
+.input{
+    padding: 1rem 1.5rem;
+    font-size: 1.25rem;
+    font-weight: 300;
+
+    &::placeholder{
+        color: var(--neutral-gray);
+    }
+}
+
+.input-icon{
+    position: absolute;
+    right: 24px;
+    bottom: 12px;
+
+    & img{
+        width: 24px;
+        height: 24px;
+    }
+}
+
+.checkbox-container{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.checkbox{
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.checkbox-label{
+    font-size: 1.25rem;
+    letter-spacing: .75px;
+}
+
+.login-btn{
+   background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+   width: 100%;
+   padding: 1.5rem 0;
+   color: var(--neutral-white);
+   text-transform: capitalize;
+   font-weight: 500;
+   font-size: 1.25rem;
+   letter-spacing: .75px;
+}
+
+.line{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: var(--neutral-gray);
+}
+
+.line-content{
+    padding: 0 1rem;
+}
+
+.line::before,
+.line::after {
+  flex: 1;
+  content: '';
+  border-bottom: 1px solid var(--neutral-gray);
+}
+
+.register-btn{
+   width: 100%;
+   border: 1px solid var(--text-color);
+   padding: 1rem 0;
+   text-transform: capitalize;
+   font-weight: 500;
+   font-size: 1.25rem;
+   letter-spacing: .75px;
+}
+
+.problems{
+    color: var(--text-color);
+    font-size: 1rem;
+    font-weight: bold;
+    letter-spacing: 1.25px;
+}
+
+.terms{
+    color: var(--text-color);
+    display: flex;
+    gap: 1.5rem;
+
+    & a{
+        text-decoration: none;
+        color: var(--text-color);
+        font-size: 1.125rem;
+        font-weight: 300;
+        letter-spacing: 1.1px;
+    }
+}
