@@ -10,7 +10,6 @@ import { useState } from 'react';
 import { loginRequest } from '../services/auth';
 import { saveSession } from '../services/session';
 
-
 export default function Login(){
 
     const navigate = useNavigate()
@@ -18,17 +17,28 @@ export default function Login(){
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const [showPassword, setShowPassword] = useState(false)
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState("")
 
     const handleSubmit = async (e) => {
         e.preventDefault()
+        setError("")
+        let loadingTimeout
 
         try{
+            loadingTimeout = setTimeout(() => {
+                setLoading(true)
+            }, 400)
             const data = await loginRequest(email, password)
             saveSession(data.jwt, data.user)
             navigate("/home")
         }
         catch(error){
-            console.error(error.message)
+            setError(error.message)
+        }
+        finally{
+            clearTimeout(loadingTimeout)
+            setLoading(false)
         }
     }
 
@@ -46,7 +56,7 @@ export default function Login(){
                                 placeholder='seunome@email.com'
                                 value={email}
                                 onChange={(e)=> setEmail(e.target.value)}
-                                className='input'
+                                className={error ? 'input error-message' : 'input'}
                             />
                             <div className="input-icon">
                                 <img src={mail} alt="Email Icon" />
@@ -59,7 +69,7 @@ export default function Login(){
                                 id="password"
                                 placeholder='Password'
                                 value={password}
-                                onChange={(e)=> setPassword(e.target.value)}                            className='input'
+                                onChange={(e)=> setPassword(e.target.value)}                            className={error ? 'input error-message' : 'input'}
                             />
                             <div className="input-icon">
                                 <img src={lock} alt="Password Icon" />
@@ -78,9 +88,10 @@ export default function Login(){
                         <p className='problems'>Problemas para acessar sua conta?</p>
                         <button
                             type='submit'
-                            className='login-btn'
-                        >
-                        Acessar</button>
+                            className = 'login-btn'
+                        >   
+                            {loading ? "Carregando..." : error ? "Erro ao logar": "Acessar"}
+                        </button>
                     </form>
                     <div className='line'><span className='line-content'>ou</span></div>
                     <button
@@ -98,8 +109,8 @@ export default function Login(){
 
             <div 
                 className="container"
-                style={{ backgroundImage: `url(${bgImage})` }}
-            ></div>
+                style={{ backgroundImage: `url(${bgImage})` }}>
+            </div>
         </div>
     )
 }

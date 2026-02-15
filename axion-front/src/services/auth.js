@@ -12,9 +12,11 @@ export async function  loginRequest(email, password) {
             })
         })
 
+    const data = await response.json()
+
     if(!response.ok){
-        throw new Error(response.error.msg)
+        throw new Error(data?.error?.message || "Email ou senha inválidos") 
     }
 
-    return response.json() 
+    return data
 }

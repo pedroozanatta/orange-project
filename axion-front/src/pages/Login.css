@@ -60,9 +60,17 @@ form{
     padding: 1rem 1.5rem;
     font-size: 1.25rem;
     font-weight: 300;
+    outline: none;
+    border-color: var(--neutral-gray);
 
     &::placeholder{
         color: var(--neutral-gray);
+    }
+
+    
+    &:focus{
+        outline: none;
+        border-color: var(--primary-color);
     }
 }
 
@@ -151,5 +159,13 @@ form{
         font-size: 1.125rem;
         font-weight: 300;
         letter-spacing: 1.1px;
+    }
+}
+
+.error-message{
+    border-color:red;
+
+    &::placeholder{
+        color: red;
     }
 }
