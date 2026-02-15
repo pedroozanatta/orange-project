@@ -1,7 +1,8 @@
 const API_URL = "http://localhost:1337";
 
 export async function  loginRequest(email, password) {
-    const response = await fetch(`${API_URL}/auth/local`, {
+    try{
+        const response = await fetch(`${API_URL}/auth/local`, {
             method: "POST",
             headers:{
                 "Content-Type": "application/json",
@@ -12,11 +13,15 @@ export async function  loginRequest(email, password) {
             })
         })
 
-    const data = await response.json()
+        const data = await response.json()
 
-    if(!response.ok){
-        throw new Error(data?.error?.message || "Email ou senha inválidos") 
+        if(!response.ok){
+            throw new Error(data?.error?.message || "Email ou senha inválidos") 
+        }
+
+        return data
+
+    } catch(error){
+        throw new Error(error)
     }
-
-    return data
 }
