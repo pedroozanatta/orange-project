@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:1337"
+const API_URL = "http://localhost:1337";
 
 export async function  loginRequest(email, password) {
     const response = await fetch(`${API_URL}/auth/local`, {
@@ -13,7 +13,7 @@ export async function  loginRequest(email, password) {
         })
 
     if(!response.ok){
-        throw new Error("Email ou senha inválidos")
+        throw new Error(response.error.msg)
     }
 
     return response.json() 

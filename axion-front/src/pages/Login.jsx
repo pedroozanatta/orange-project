@@ -7,6 +7,8 @@ import "./Login.css"
 
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
+import { loginRequest } from '../services/auth';
+import { saveSession } from '../services/session';
 
 
 export default function Login(){
@@ -17,8 +19,17 @@ export default function Login(){
     const [password, setPassword] = useState("")
     const [showPassword, setShowPassword] = useState(false)
 
-    const handleSubmit = () => {
-        
+    const handleSubmit = async (e) => {
+        e.preventDefault()
+
+        try{
+            const data = await loginRequest(email, password)
+            saveSession(data.jwt, data.user)
+            navigate("/home")
+        }
+        catch(error){
+            console.error(error.message)
+        }
     }
 
     return(
@@ -34,7 +45,7 @@ export default function Login(){
                                 id="email"
                                 placeholder='seunome@email.com'
                                 value={email}
-                                onChange={(e)=>setEmail(e.target.value)}
+                                onChange={(e)=> setEmail(e.target.value)}
                                 className='input'
                             />
                             <div className="input-icon">
@@ -48,7 +59,7 @@ export default function Login(){
                                 id="password"
                                 placeholder='Password'
                                 value={password}
-                                onChange={(e)=>setPassword(e.target.value)}                            className='input'
+                                onChange={(e)=> setPassword(e.target.value)}                            className='input'
                             />
                             <div className="input-icon">
                                 <img src={lock} alt="Password Icon" />
