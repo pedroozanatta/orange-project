@@ -169,3 +169,27 @@ form{
         color: red;
     }
 }
+
+@media (max-width: 768px) {
+    .container{
+        display: none;
+        background: none;
+    }
+
+    .login-container{
+        width: 90%;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .form-container{
+        height: 80vh;
+        width: 90%;
+        justify-content: space-around;
+        padding: 5rem 2rem;
+    }
+
+    form{
+        gap: 3rem;
+    }
+}

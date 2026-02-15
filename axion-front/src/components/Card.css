@@ -22,3 +22,14 @@
   letter-spacing: 1.2px;
   font-family: var(--primary-font);
 }
+
+@media(max-width: 768px){
+  .card{
+    height: 480px;
+  }
+
+  .card-title {
+    font-size: 3rem;
+    letter-spacing: 1px;
+  }
+}

@@ -42,3 +42,23 @@ button{
 .active{
   font-weight: bold;
 }
+
+@media(max-width: 768px){
+  .nav-container{
+    width: 70%;
+  }
+
+  .logo{
+    width: 30%;
+  }
+
+  .nav-links{
+    gap: 2rem;
+  }
+
+  button{
+    font-size: 1rem;
+    letter-spacing: 0.25px; 
+
+  }
+}
