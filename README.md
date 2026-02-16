@@ -6,7 +6,7 @@ The application allows users to log in and view different collections (Foods, Pe
 
 ---
 
-## 📌 Project Context
+##  Project Context
 
 The main objective of this project is to demonstrate the complete implementation of:
 
@@ -19,7 +19,7 @@ The main objective of this project is to demonstrate the complete implementation
 
 The application uses **Strapi as the backend** for authentication and data management.
 
-## 🚀 Features
+##  Features
 
 *  User login via API
 *  Session storage using JWT
@@ -28,7 +28,7 @@ The application uses **Strapi as the backend** for authentication and data manag
 *  Visual feedback for loading and errors
 *  Responsive interface based on the proposed layout
 
-## 🧠 Project Architecture
+##  Project Architecture
 
 Organization based on separation of responsibilities:
 
@@ -64,7 +64,7 @@ src/
 
 ```
 
-## 🛠️ Technologies Used
+##  Technologies Used
 
 ### Frontend
 
@@ -102,7 +102,7 @@ nvm install 20
 
 It is strongly recommended to use NVM to manage Node versions.
 
-## 🔐 Authentication and Session
+##  Authentication and Session
 
 The system uses:
 
@@ -122,7 +122,7 @@ Access control:
 * Authenticated users are automatically redirected
 
 
-## 🌐 API Integration
+##  API Integration
 
 API used:
 
@@ -200,7 +200,7 @@ password: Axioner123
 *(or use your own user created in Strapi)*
 
 
-## 🔒 Route Protection
+##  Route Protection
 
 Protected routes:
 
@@ -214,7 +214,7 @@ Public routes:
 /
 ```
 
-## 🎨 Layout
+##  Layout
 
 The interface was developed based on the proposed design: [MarvelApp](https://marvelapp.com/prototype/35gh79g/screen/48059680)
 
